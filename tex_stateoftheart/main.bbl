@@ -1,0 +1,34 @@
+\begin{thebibliography}{1}
+
+\bibitem{ref1}
+Zonghan Wu, Shirui Pan, Fengwen Chen, Guodong Long, Chengqi Zhang, and
+  Philip~S. Yu.
+\newblock A comprehensive survey on graph neural networks.
+\newblock {\em CoRR}, abs/1901.00596, 2019.
+
+\bibitem{ref5}
+Jiani Zhang, Xingjian Shi, Junyuan Xie, Hao Ma, Irwin King, and Dit-Yan Yeung.
+\newblock Gaan: Gated attention networks for learning on large and
+  spatiotemporal graphs, 2018.
+
+\bibitem{ref6}
+Yaguang Li, Rose Yu, Cyrus Shahabi, and Yan Liu.
+\newblock Diffusion convolutional recurrent neural network: Data-driven traffic
+  forecasting, 2018.
+
+\bibitem{ref7}
+Bing Yu, Haoteng Yin, and Zhanxing Zhu.
+\newblock Spatio-temporal graph convolutional networks: A deep learning
+  framework for traffic forecasting.
+\newblock In {\em Proceedings of the Twenty-Seventh International Joint
+  Conference on Artificial Intelligence}, IJCAI-2018. International Joint
+  Conferences on Artificial Intelligence Organization, July 2018.
+
+\bibitem{ref8}
+Jeewaka Perera, Shih-Hsi Liu, Marjan Mernik, Matej Črepinšek, and Miha
+  Ravber.
+\newblock A graph pointer network-based multi-objective deep reinforcement
+  learning algorithm for solving the traveling salesman problem.
+\newblock {\em Mathematics}, 11(2), 2023.
+
+\end{thebibliography}

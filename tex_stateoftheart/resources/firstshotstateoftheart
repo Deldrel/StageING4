@@ -1,0 +1,102 @@
+\begin{abstract}
+        This document is a summary of the state of the art about graph neural networks.
+        We are going to summarize the papers~\cite{ref1} and~\cite{ref2}.
+        We are also going to give a brief overview of the tools we are going to use to implement the models.
+        Our goal is to propose a solution to find path based on multiple criteria like CO2 emissions or ETA, and make it possible to combine them.
+        We will try to add person-related and health dimensions criteria like reduced mobility.
+    \end{abstract}
+
+
+    \section{Notes sprint}\label{sec:notes-sprint}
+
+    \subsection{Sprint 1}\label{subsec:sprint-1}
+
+    \begin{itemize}
+        \item \href{https://portal.core.edu.au/conf-ranks/}{Check the rank of a conference here.}
+        \item \href{https://www.scimagojr.com/}{Check the rank of a journal here.}
+        \item M. Meideros office: em306, M. Ravaut office: em304.
+    \end{itemize}
+
+    We have to find datasets for our problem.
+    We can check the quality of a dataset by how much it was used by good papers.
+    We have to justify why IA brings something new to the problem and compare this solution to more basic ones like shortest path algorithms.
+
+
+    \section{Introduction}\label{sec:introduction}
+    Here are notes of the state of the art about graph neural networks.
+    We first are going to summarize the given papers~\cite{ref1} and~\cite{ref2}.
+    Then I'm going to give a brief overview of the tools we are going to use to implement the models.
+    We are trying to find ideas to solve our problem: How to make public transports itineraries based on a selected
+    parameter like CO2 emissions or ETA.
+
+
+    \section{Graph Neural Networks}\label{sec:graph-neural-networks}
+    The first paper~\cite{ref1} categorized graph neural networks into four categories:
+
+    \begin{itemize}
+        \item \textbf{RecGNNs}: Recurrent Graph Neural Networks.
+        \item \textbf{ConvGNNs}: Convolutional Graph Neural Networks.
+        \item \textbf{GAEs}: Graph Autoencoders.
+        \item \textbf{STGNNs}: Spatial-Temporal Graph Neural Networks.
+    \end{itemize}
+
+    \subsection{Recurrent Graph Neural Networks}\label{subsec:recurrent-graph-neural-networks}
+    They learn node representations with recurrent neural architectures.
+    They assume a node in a graph constantly exchanges information with its neighbors until a stable equilibrium is
+    reached.
+
+    \subsection{Convolutional Graph Neural Networks}\label{subsec:convolutional-graph-neural-networks}
+    They generalize the operation of convolution to graph data.
+    The idea is to generate a node representation by aggregating its own features and its neighbors' features.
+    They use multiple convolutional layers to extract high-level features.
+
+    \subsection{Graph Autoencoders}\label{subsec:graph-autoencoders}
+    These are unsupervised models that learn to encode the graph structure into a low-dimensional space.
+    They consist of two parts: an encoder that maps the graph into a low-dimensional space and a decoder that
+    reconstructs.
+    They are used to learn node embeddings.
+
+    \subsection{Spatial-Temporal Graph Neural Networks}\label{subsec:spatial-temporal-graph-neural-networks}
+    They learn hidden patterns from spatial-temporal graphs by considering spatial and temporal dependency at the
+    same time.
+    Current approaches use a combination of ConvGNNs for space and RecGNNs for time.
+    These are the most promising type of GNNs for our problem, as traffic obviously depends heavily on space and time.
+
+
+    \section{ETA Prediction with Graph Neural Networks}\label{sec:eta-prediction-with-graph-neural-networks}
+    Google Maps uses a graph neural network to predict the ETA.
+    It is very useful for google, but also for third party applications that needs pathfinding tools like uber.
+
+    \subsection{Problem Setup}\label{subsec:problem-setup}
+    They use supersegments to represent the road.
+    Supersegments are sequences of connected road segments that follows typical traffic routes.
+    for each supersegment, they learn the travel time for different fixed time horizons.
+    This enable accurate ETA in a scalable way.
+
+    \subsubsection{Data}\label{subsubsec:data}
+    They divided the world into region that have similar driving behavior in order to build region-specific models.
+    Each training and evaluation sample is derived from multiple traversals of a unique "supersegment" and its comprising road segments.
+    Traversal times are recorded in seconds and are utilized as labels for both node-level and graph-level prediction.
+    Features representing traffic conditions before these traversals are gathered over fixed time horizons of 0, 600, 1200, 1800, and 3600 seconds.
+    \newline
+    The paper doesn't give any sources for the data, but we can find some on the web.
+    For example the \href{https://prim.iledefrance-mobilites.fr/fr/catalogue-data}{Ile-de-France mobilités} company has many datasets available and a live api.
+
+    \subsubsection{Features}\label{subsubsec:features}
+    For individual segments (nodes), features include average travel speeds and times, both current and historical, along with segment length and priority.
+    For supersegments (graphs), real-time travel times are also included as features.
+    Learnable embedding vectors are provided for segments and supersegments, which allows information sharing across different occurences of the same segment or supersegment in various routes.
+
+    \subsection{Model Architecture}\label{subsec:model-architecture}
+
+    \subsection{Training}\label{subsec:training}
+
+
+    \section{Tools}\label{sec:tools}
+    intro here
+
+    \subsection{PyTorch Geometric}\label{subsec:pytorch-geometric}
+
+    \subsection{PyTorch Lightning}\label{subsec:pytorch-lightning}
+
+    \subsection{NetworkX}\label{subsec:networkx}

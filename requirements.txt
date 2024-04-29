@@ -1,1 +1,15 @@
 PyYAML~=6.0.1
+torch~=2.2.2
+torch_geometric~=2.5.2
+lightning~=2.2.2
+python-dotenv~=1.0.1
+wandb~=0.16.6
+networkx~=3.2.1
+matplotlib~=3.8.4
+numpy~=1.26.4
+pandas~=2.2.2
+requests~=2.31.0
+geopandas~=0.14.2
+shapely~=2.0.1
+osmnx~=1.9.2
+folium~=0.14.0

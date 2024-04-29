@@ -2,14 +2,20 @@ import yaml
 from pathlib import Path
 
 
-def load_config(config_file: Path) -> dict:
-    """
-    Load the configuration file
-    :param config_file: path to the configuration file
-    :return: dict
-    """
-    with open(config_file, 'r') as f:
-        return yaml.safe_load(f)
+class ConfigLoader:
+    _config = None
+
+    @classmethod
+    def load_config(cls, config_file: Path) -> dict:
+        """
+        Load the configuration file
+        :param config_file: path to the configuration file
+        :return: dict
+        """
+        if cls._config is None:
+            with open(config_file, 'r') as f:
+                cls._config = yaml.safe_load(f)
+        return cls._config
 
 
-config = load_config(Path(__file__).parent.parent / 'config.yaml')
+config = ConfigLoader.load_config(Path(__file__).parent.parent / 'config.yaml')
